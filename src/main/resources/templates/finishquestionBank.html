@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FinishQuestionBank</title>
+    <style>
+        .div1{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<form>
+    <div class="div1" >
+
+        <h1 >恭喜你完成了所有的试题！！</h1>
+        <a th:href="@{../studentAnwer/returnMain(studentId = ${student.studentId}) }">返回主界面</a>
+    </div>
+</form>
+<!--<a th:href="/studentMain" th:text="返回首页"></a>-->
+</body>
+</html>

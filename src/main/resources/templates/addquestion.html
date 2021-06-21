@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>AddQuestion</title>
+
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="css/form-validation.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4" th:src="@{/img/bootstrap-logo.svg}" src="img/bootstrap-logo.svg" alt="" width="72" height="57">
+                <h2>添加试题</h2>
+            </div>
+
+            <div class="row g-3">
+
+                <div class="col-md-7 col-lg-8">
+                    <h4 class="mb-3">添加试题内容</h4>
+                    <form class="needs-validation" action="/question/addQuestion" novalidate>
+                        <div class="row g-3">
+
+                            <div class="col-md-5">
+                                <label for="questionType" class="form-label">试题类型</label>
+                                <select class="form-select" id="questionType" th:name="questionType" required>
+                                    <option value="">选择...</option>
+                                    <option th:value="单选题">单选题</option>
+                                    <option th:value="多选题">多选题</option>
+                                    <option th:value="不定项">不定项</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    请选择试题类型
+                                </div>
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionContent" id="questionContent" placeholder="题目内容" required>
+                                <div class="invalid-feedback">
+                                    请填写题目内容
+                                </div>
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionDescription" id="questionDescription" placeholder="题目描述">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionOptionA" id="questionOptionA" placeholder="选项A">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionOptionB" id="questionOptionB" placeholder="选项B">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionOptionC" id="questionOptionC" placeholder="选项C">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionOptionD" id="questionOptionD" placeholder="选项D">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionAnalysisOptionA" id="questionAnalysisOptionA" placeholder="选项A解析">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionAnalysisOptionB" id="questionAnalysisOptionB" placeholder="选项B解析">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionAnalysisOptionC" id="questionAnalysisOptionC" placeholder="选项C解析">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionAnalysisOptionD" id="questionAnalysisOptionD" placeholder="选项D解析">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionAnswer" id="questionAnswer" placeholder="题目答案">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control" th:name="questionDifficulty" id="questionDifficulty" placeholder="题目难度">
+                            </div>
+                            <hr class="my-4">
+
+                            <div class="col-12">
+                                <input type="text" class="form-control"  th:name="questionKnowledges" id="questionKnowledges" placeholder="知识点群">
+                            </div>
+                        </div>
+
+
+                        <hr class="my-4">
+
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">添加试题</button>
+                        <hr class="my-4">
+                        <hr class="my-4">
+                    </form>
+                </div>
+            </div>
+        </main>
+</div>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="js/form-validation.js"></script>
+</body>
+</html>

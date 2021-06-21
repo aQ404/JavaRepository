@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowKnowledge</title>
+    <style>
+        table td{
+            max-width: 200px;
+            overflow: auto;
+            /*text-overflow:ellipsis;*/
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <form >
+        <table border="1" >
+            <tr>
+                <td>试题类型</td>
+                <td>试题题干</td>
+                <td>试题描述</td>
+                <td>试题选项A</td>
+                <td>试题选项B</td>
+                <td>试题选项C</td>
+                <td>试题选项D</td>
+                <td>试题选项A解析</td>
+                <td>试题选项B解析</td>
+                <td>试题选项C解析</td>
+                <td>试题选项D解析</td>
+                <td>试题答案</td>
+                <td>试题难度</td>
+                <td>知识点群</td>
+                <td>修改操作</td>
+                <td>删除操作</td>
+            </tr>
+                <ul th:each="question,questionStat :${questionList}">
+                    <tr>
+                        <td th:name="questionType" th:text="${question.questionType}"></td>
+                        <td th:name="questionContent" th:text="${question.questionContent}"></td>
+                        <td th:name="questionDescription" th:text="${question.questionDescription}"></td>
+                        <td th:name="questionOptionA" th:text="${question.questionOptionA}"></td>
+                        <td th:name="questionOptionB" th:text="${question.questionOptionB}"></td>
+                        <td th:name="questionOptionC" th:text="${question.questionOptionC}"></td>
+                        <td th:name="questionOptionD" th:text="${question.questionOptionD}"></td>
+                        <td th:name="questionAnalysisOptionA" th:text="${question.questionAnalysisOptionA}"></td>
+                        <td th:name="questionAnalysisOptionB" th:text="${question.questionAnalysisOptionB}"></td>
+                        <td th:name="questionAnalysisOptionC" th:text="${question.questionAnalysisOptionC}"></td>
+                        <td th:name="questionAnalysisOptionD" th:text="${question.questionAnalysisOptionD}"></td>
+                        <td th:name="questionAnswer" th:text="${question.questionAnswer}"></td>
+                        <td th:name="questionDifficulty" th:text="${question.questionDifficulty}">/td>
+                        <td th:name="questionKnowledges" th:text="${question.questionKnowledges}"></td>
+                        <td ><a th:href="@{/question/update(questionId=${question.questionId})}">修改</a> </td>
+                        <td ><a th:href="@{/question/deleteQuestion(questionId=${question.questionId})}">删除</a> </td>
+                    </tr>
+                </ul>
+            <tr>
+                <td><a href="/question/add">添加试题</a> </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

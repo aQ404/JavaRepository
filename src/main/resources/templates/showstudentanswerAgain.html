@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowStudentAnswerAgain</title>
+</head>
+<body>
+<form action="/studentAnswer/showStudentAnswerAgain">
+    <div th:switch="${question.questionType}">
+        <div th:case="单选题" th:if="${studentAnswer.studentLearnQuestion}==0">
+            <table border="0">
+                <tr>
+                    <td>
+                        <fron th:text="${question.questionContent}"></fron>
+                        (<fron th:text="${question.questionDescription}"></fron>)
+                    </td>
+                    <td>
+                        <input type="checkbox" th:name="studentLearnQuestion" th:value="1" >是否已学会本道题<br>
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerA()}==0">
+                    <td>
+                        <input type="radio" th:name="studentAnswerd" th:value="${question.questionOptionA}">A:<fron th:text="${question.questionOptionA}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerA">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerB()}==0">
+                    <td>
+                        <input type="radio" th:name="studentAnswerd" th:value="${question.questionOptionB}">B:<fron th:text="${question.questionOptionB}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerB">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerC()}==0">
+                    <td>
+                        <input type="radio" th:name="studentAnswerd" th:value="${question.questionOptionC}">C:<fron th:text="${question.questionOptionC}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerC">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerD()}==0">
+                    <td>
+                        <input type="radio" th:name="studentAnswerd" th:value="${question.questionOptionD}">D:<fron th:text="${question.questionOptionD}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerB">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div th:case="多选题" th:if="${studentAnswer.studentLearnQuestion}==0">
+            <table border="0">
+                <tr>
+                    <td>
+                        <fron th:text="${question.questionContent}"></fron>
+                        (<fron th:text="${question.questionDescription}"></fron>)
+                    </td>
+                    <td>
+                        <input type="checkbox" th:name="studentLearnQuestion" th:value="1" >是否已学会本道题<br>
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerA()}==0">
+                    <td>
+                        <input type="checkbox" th:name="studentAnswerd" th:value="${question.questionOptionA}">A:<fron th:text="${question.questionOptionA}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerA">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerB()}==0">
+                    <td>
+                        <input type="checkbox" th:name="studentAnswerd" th:value="${question.questionOptionB}">B:<fron th:text="${question.questionOptionB}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerB">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerC()}==0">
+                    <td>
+                        <input type="checkbox" th:name="studentAnswerd" th:value="${question.questionOptionC}">C:<fron th:text="${question.questionOptionC}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerC">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerD()}==0">
+                    <td>
+                        <input type="checkbox" th:name="studentAnswerd" th:value="${question.questionOptionD}">D:<fron th:text="${question.questionOptionD}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerB">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div th:case="不定项" th:if="${studentAnswer.studentLearnQuestion}==0">
+            <table border="0">
+                <tr>
+                    <td>
+                        <fron th:text="${question.questionContent}"></fron>
+                        (<fron th:text="${question.questionDescription}"></fron>)
+                    </td>
+                    <td>
+                        <input type="checkbox" th:name="studentLearnQuestion" th:value="1" >是否已学会本道题<br>
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerA()}==0">
+                    <td>
+                        <input type="checkbox" th:name="studentAnswerd" th:value="${question.questionOptionA}">A:<fron th:text="${question.questionOptionA}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerA">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerB()}==0">
+                    <td>
+                        <input type="checkbox" th:name="studentAnswerd" th:value="${question.questionOptionB}">B:<fron th:text="${question.questionOptionB}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerB">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerC()}==0">
+                    <td>
+                        <input type="checkbox" th:name="studentAnswerd" th:value="${question.questionOptionC}">C:<fron th:text="${question.questionOptionC}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerC">
+                    </td>
+                </tr>
+                <tr th:if="${studentAnswer.getStudentAnswerD()}==0">
+                    <td>
+                        <input type="checkbox" th:name="studentAnswerd" th:value="${question.questionOptionD}">D:<fron th:text="${question.questionOptionD}"></fron>
+                    </td>
+                    <td>
+                        <input type="checkbox" th:text="是否消除本道选项" th:value="1" th:name="studentAnswerB">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <input type="hidden" th:name="studentAnswerNums" th:value="${studentAnswerNums+1}">
+    <input type="hidden" th:name="questionId" th:value="${question.questionId}">
+    <input type="hidden" th:name="studentId" th:value="${studentId}">
+    <button type="submit" >确定</button><br/>
+    <a th:href="@{/studentAnwer/returnMain(studentId = ${studentId})}">返回主界面</a>
+</form>
+</body>
+</html>

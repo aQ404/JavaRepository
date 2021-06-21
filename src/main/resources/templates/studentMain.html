@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>StudentMain</title>
+    <link rel="stylesheet" href="css/teacherMain.css">
+</head>
+<body>
+<h2 class="title">学生 <span>主界面</span></h2>
+<div class="contenedor-acordeon" id="acordeon-content">
+    <div class="acordeon">
+        <div class="acordeon__head">
+            <p class="acordeon__head--title">考试</p><span class="fa fa-chevron-down icon"></span>
+        </div>
+        <div class="acordeon__body">
+            <div class="acordeon__body__menu">
+                <li><a th:href="@{/studentAnswer/showStudentAnswer(studentId=${student.studentId},studentAnswerNums=${student.studentAnswerNums+1},studentAnswerFrequency=${student.studentAnswerFrequency})}" th:if="${student.studentAnswerFrequency}==0 and ${student.studentAnswerNums}==0">开始做题</a>
+                    <a th:href="@{/studentAnswer/showStudentAnswer(studentId=${student.studentId},studentAnswerNums=${student.studentAnswerNums},studentAnswerFrequency=${student.studentAnswerFrequency})}" th:if="${student.studentAnswerNums}>0 and ${student.studentAnswerNums}<${questionNums+1} and ${student.studentAnswerFrequency}==0">继续做题</a>
+                    <a th:href="@{/studentAnswer/showStudentAnswerAgain(studentId=${student.studentId},studentAnswerNums=${student.studentAnswerNums+1},studentAnswerFrequency=${student.studentAnswerFrequency})}" th:if="${student.studentAnswerFrequency}!=0 and ${student.studentAnswerNums}==0">重新开始做题</a>
+                    <a th:href="@{/studentAnswer/showStudentAnswerAgain(studentId=${student.studentId},studentAnswerNums=${student.studentAnswerNums},studentAnswerFrequency=${student.studentAnswerFrequency})}" th:if="${student.studentAnswerFrequency}!=0 and ${student.studentAnswerNums>0} and ${student.studentAnswerNums}<${studentAnswerdNums+1}">继续做题</a></li>
+            </div>
+        </div>
+    </div>
+<!--    <div class="acordeon">-->
+<!--        <div class="acordeon__head">-->
+<!--            <p class="acordeon__head&#45;&#45;title">个人情况</p><span class="fa fa-chevron-down icon"></span>-->
+<!--        </div>-->
+<!--        <div class="acordeon__body">-->
+<!--            <div class="acordeon__body__menu">-->
+<!--                <li><a th:href="@{#(sutdentName=${username})}">基本信息</a></li>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+<script  src="js/teacherMain.js"></script>
+</body>
+
+</html>
