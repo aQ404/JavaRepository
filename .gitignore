@@ -12,17 +12,16 @@ target/
 .settings
 .springBeans
 .sts4-cache
-.mvn
 
 ### IntelliJ IDEA ###
 .idea
+.mvn
 *.iws
 *.iml
 *.ipr
 *.gitignore
-mvnw
 mvnw.cmd
-
+mvnw
 
 ### NetBeans ###
 /nbproject/private/
