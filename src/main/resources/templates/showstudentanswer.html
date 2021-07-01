@@ -148,7 +148,7 @@
     <input type="hidden" th:name="questionId" th:value="${question.questionId}">
     <input type="hidden" th:name="studentId" th:value="${studentId}">
     <button type="submit" >确定</button><br/>
-    <a th:href="@{../studentAnwer/returnMain(studentId = ${studentId})}">返回主界面</a>
+    <a th:href="@{/studentAnswer/returnMain(studentId = ${studentId})}">返回主界面</a>
 </form>
 </body>
 </html>

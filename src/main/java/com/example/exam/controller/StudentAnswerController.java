@@ -85,10 +85,7 @@ public class StudentAnswerController {
             QueryWrapper<StudentAnswer> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("studentId",studentId);
             queryWrapper.eq("questionId",questionId);
-            System.out.println(studentId);
-            System.out.println(questionId);
-            int n=studentAnswerMapper.update(studentAnswer,queryWrapper);
-            System.out.println("n="+n);
+            studentAnswerMapper.update(studentAnswer,queryWrapper);
             Student student = studentMapper.selectById(studentId);
             student.setStudentAnswerNums(studentAnswerNums);
             student.setStudentTotalAnswerNums(student.getStudentTotalAnswerNums()+1);
@@ -96,8 +93,8 @@ public class StudentAnswerController {
         }
         Page<StudentAnswer> page = new Page<>(studentAnswerNums,1);
         List<StudentAnswer> studentAnswerList = studentAnswerMapper.selectPage(page, wrapper).getRecords();
-        studentAnswerList.forEach(System.out::println);
-        if (studentAnswerList.size()!=0){
+        List<Question> questions = questionMapper.selectList(null);
+        if (studentAnswerList.size() != 0 && studentAnswerList.size() != questions.size()){
             for (int i=0;;i++){
                 if (studentAnswerList.get(0).getStudentLearnQuestion()==1){
                     studentAnswerNums = studentAnswerNums+1;
@@ -165,8 +162,8 @@ public class StudentAnswerController {
     @RequestMapping("/returnMain")
     public String ReturnMain(Model model,Integer studentId){
         Student student = studentMapper.selectById(studentId);
-        System.out.println(student);
         List<Question> questionList = questionMapper.selectList(null);
+//        model.addAttribute("studentAnswerdNums",studentAnswerList.size());
         model.addAttribute("questionNums",questionList.size());
         model.addAttribute("student",student);
         return "studentMain";

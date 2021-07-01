@@ -43,7 +43,7 @@ public class LoginController {
                 QueryWrapper<StudentAnswer> wrapper = new QueryWrapper<>();
                 wrapper.eq("studentId",student.getStudentId());
                 List<StudentAnswer> studentAnswerList = studentAnswerMapper.selectList(wrapper);
-                model.addAttribute("studentAnswerdNums",studentAnswerList.size());
+//                model.addAttribute("studentAnswerdNums",studentAnswerList.size());
                 model.addAttribute("student",student);
                 model.addAttribute("questionNums",questionList.size());
                 return "studentMain";
