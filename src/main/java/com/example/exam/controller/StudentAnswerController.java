@@ -94,7 +94,8 @@ public class StudentAnswerController {
         Page<StudentAnswer> page = new Page<>(studentAnswerNums,1);
         List<StudentAnswer> studentAnswerList = studentAnswerMapper.selectPage(page, wrapper).getRecords();
         List<Question> questions = questionMapper.selectList(null);
-        if (studentAnswerList.size() != 0 && studentAnswerList.size() != questions.size()){
+        studentAnswerList.removeIf(studentAnswer -> studentAnswer.getStudentLearnQuestion() == 1);
+        if (studentAnswerList.size() != 0){
             for (int i=0;;i++){
                 if (studentAnswerList.get(0).getStudentLearnQuestion()==1){
                     studentAnswerNums = studentAnswerNums+1;
